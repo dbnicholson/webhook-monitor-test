@@ -32,7 +32,7 @@ jobs:
       # This step installs the octokit library. The script that this
       # workflow will run uses the octokit library.
       - name: Install dependencies
-        run: npm install octokit
+        run: yarn install
 
       - name: Generate webhook app token
         id: generate-token
@@ -51,4 +51,4 @@ jobs:
           WORKFLOW_REPO_OWNER: ${{ github.repository_owner }}
           WORKFLOW_REPO_NAME: ${{ github.event.repository.name }}
         run: |
-          node .github/workflows/scripts/redeliver-failed-deliveries.js
+          node redeliver-failed-deliveries.js

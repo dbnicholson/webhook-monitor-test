@@ -1,4 +1,5 @@
 // This script uses GitHub's Octokit SDK to make API requests. For more information, see "[AUTOTITLE](/rest/guides/scripting-with-the-rest-api-and-javascript)."
+import { Octokit } from "octokit";
 
 //
 async function checkAndRedeliverWebhooks() {
@@ -13,7 +14,6 @@ async function checkAndRedeliverWebhooks() {
   const WORKFLOW_REPO_OWNER = process.env.WORKFLOW_REPO_OWNER;
 
   // Create an instance of `Octokit` using the token values that were set in the GitHub Actions workflow.
-  const { Octokit } = await import("octokit");
   const octokit = new Octokit({ 
     auth: TOKEN,
   });
