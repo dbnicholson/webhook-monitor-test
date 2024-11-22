@@ -17,10 +17,7 @@ jobs:
     runs-on: ubuntu-latest
 
     # Only run if the required variables are set.
-    if: >-
-      vars.HOOK_ID &&
-      vars.WEBHOOK_APP_ID &&
-      secrets.WEBHOOK_APP_PRIVATE_KEY
+    if: vars.HOOK_ID && vars.WEBHOOK_APP_ID
 
     steps:
       # This workflow will run a script that is stored in the
