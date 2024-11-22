@@ -15,6 +15,13 @@ jobs:
   redeliver-failed-deliveries:
     name: Redeliver failed deliveries
     runs-on: ubuntu-latest
+
+    # Only run if the required variables are set.
+    if: >-
+      vars.HOOK_ID &&
+      vars.WEBHOOK_APP_ID &&
+      secrets.WEBHOOK_APP_PRIVATE_KEY
+
     steps:
       # This workflow will run a script that is stored in the
       # repository. This step checks out the repository contents so that
